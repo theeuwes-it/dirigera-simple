@@ -11,10 +11,10 @@ export function initializeWebSocket({
                                         callback,
                                     }) {
     ws = new ReconnectingWebSocket(`wss://${ip}:8443/v1`, [], {
-        minReconnectionDelay: 10,
-        maxReconnectionDelay: 10000,
-        maxRetries: Number.MAX_SAFE_INTEGER,
-        WebSocket: class extends WebSocket {
+        // minReconnectionDelay: 10,
+        // maxReconnectionDelay: 10000,
+        // maxRetries: Number.MAX_SAFE_INTEGER,
+        webSocket: class extends WebSocket {
             constructor(url, protocols) {
                 super(url, protocols, {
                     headers: {
@@ -36,7 +36,7 @@ export function initializeWebSocket({
             JSON.stringify({
                 id: crypto.randomUUID(),
                 specversion: '1.1.0',
-                source: `urn:lpgera:dirigera`,
+                source: `urn:theeuwes-it:dirigera`,
                 time: new Date().toISOString(),
                 type: 'ping',
                 data: null,
