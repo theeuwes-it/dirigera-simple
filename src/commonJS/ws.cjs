@@ -1,11 +1,11 @@
-import ReconnectingWebSocket from 'reconnecting-websocket'
-import WebSocket from 'ws'
-import crypto from 'crypto'
+const ReconnectingWebSocket = require('reconnecting-websocket');
+const WebSocket = require('ws');
+const crypto = require('crypto');
 
 let ws = null
 let timer = null
 
-export function initializeWebSocket({
+function initializeWebSocket({
                                         ip,
                                         accessToken,
                                         callback,
@@ -45,9 +45,14 @@ export function initializeWebSocket({
     }, 30000)
 }
 
-export function closeWebSocket() {
+function closeWebSocket() {
     ws?.close()
     if (timer) {
         clearInterval(timer)
     }
+}
+
+module.exports =  {
+    initializeWebSocket,
+    closeWebSocket
 }
