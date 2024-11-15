@@ -1,0 +1,31 @@
+{
+  "name": "dirigera-simple",
+  "version": "0.1.4",
+  "description": "A simple tool that can be used to set up a local controller for your new IKEA smart home system, based on the Dirigera hub.",
+  "main": "index.mjs",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "exports": {
+    "require": "./index.cjs",
+    "import": "./index.mjs"
+  },
+  "keywords": [
+    "dirigera",
+    "ikea",
+    "smarthome",
+    "home",
+    "tradfri"
+  ],
+  "author": "Kosmo - FAIR2 Media",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/fair2/dirigera-simple/src/master/#readme",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "mdns-server": "^1.0.11",
+    "node-fetch": "^3.3.0",
+    "reconnecting-websocket": "^4.4.0",
+    "ws": "^8.13.0"
+  }
+}
