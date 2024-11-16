@@ -2,9 +2,9 @@ const { fetchForm, fetchJson, encodeDataToURL } = require('./utils.cjs');
 const { initializeWebSocket, closeWebSocket } = require('./ws.cjs');
 const fs = require('fs');
 /**
-* Control devices in your IKEA smart home network via your Dirigera Hub.
-*
-*/
+ * Control devices in your IKEA smart home network via your Dirigera Hub.
+ *
+ */
 class Dirigera {
     /**
      * Setup connection with the Dirigera Hub.
@@ -343,11 +343,11 @@ class Dirigera {
         }
         const ip = this.ip;
         const access_token = this.access_token;
-        initializeWebSocket({
+        initializeWebSocket(
             ip,
             access_token,
-            callback,
-        })
+            callback
+        )
     }
     stopListeningForUpdates() {
         closeWebSocket()

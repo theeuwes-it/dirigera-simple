@@ -1,28 +1,16 @@
 const ReconnectingWebSocket = require('reconnecting-websocket');
-const WebSocket = require('ws');
 const crypto = require('crypto');
 
 let ws = null
 let timer = null
 
-function initializeWebSocket({
-                                        ip,
-                                        accessToken,
-                                        callback,
-                                    }) {
+function initializeWebSocket(ip, accessToken, callback) {
     ws = new ReconnectingWebSocket(`wss://${ip}:8443/v1`, [], {
-        // minReconnectionDelay: 10,
-        // maxReconnectionDelay: 10000,
-        // maxRetries: Number.MAX_SAFE_INTEGER,
-        webSocket: class extends WebSocket {
-            constructor(url, protocols) {
-                super(url, protocols, {
-                    headers: {
-                        authorization: `Bearer ${accessToken}`,
-                    },
-                    rejectUnauthorized: false,
-                })
-            }
+        webSocketOptions: {
+            headers: {
+                authorization: `Bearer ${accessToken}`,
+            },
+            rejectUnauthorized: false,
         },
         debug: process.env['NODE_ENV'] === 'development',
     })
