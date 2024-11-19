@@ -20,16 +20,20 @@ function initializeWebSocket(ip, accessToken, callback) {
     })
 
     timer = setInterval(() => {
-        ws?.send(
-            JSON.stringify({
-                id: crypto.randomUUID(),
-                specversion: '1.1.0',
-                source: `urn:theeuwes-it:dirigera`,
-                time: new Date().toISOString(),
-                type: 'ping',
-                data: null,
-            })
-        )
+        try {
+            ws?.send(
+                JSON.stringify({
+                    id: crypto.randomUUID(),
+                    specversion: '1.1.0',
+                    source: `urn:theeuwes-it:dirigera`,
+                    time: new Date().toISOString(),
+                    type: 'ping',
+                    data: null,
+                })
+            )
+        } catch (e) {
+            console.log(e)
+        }
     }, 30000)
 }
 
