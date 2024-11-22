@@ -38,8 +38,12 @@ export function initializeWebSocket(ip, accessToken, callback) {
 }
 
 export function closeWebSocket() {
-    ws?.close()
-    if (timer) {
-        clearInterval(timer)
+    try {
+        ws?.close()
+        if (timer) {
+            clearInterval(timer)
+        }
+    } catch (e) {
+        console.log(e)
     }
 }

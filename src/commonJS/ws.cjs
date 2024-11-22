@@ -38,9 +38,13 @@ function initializeWebSocket(ip, accessToken, callback) {
 }
 
 function closeWebSocket() {
-    ws?.close()
-    if (timer) {
-        clearInterval(timer)
+    try {
+        ws?.close()
+        if (timer) {
+            clearInterval(timer)
+        }
+    } catch (e) {
+        console.log(e)
     }
 }
 
