@@ -162,7 +162,7 @@ class AuthenticateV2 {
                     if (typeof(this.listener.pairingSucceeded) == "function") {
                         this.listener.pairingSucceeded(result)
                     }
-                    console.log(`Pairing succeeded: ${result}`);
+                    console.log(`Pairing succeeded: ${JSON.stringify(result)}`);
                 }
             }
         )
