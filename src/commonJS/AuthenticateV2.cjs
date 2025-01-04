@@ -44,7 +44,7 @@ class AuthenticationListener {
  *
  * @since v0.1.0
  */
-class Authenticate {
+class AuthenticateV2 {
     /**
      * Get the access code from the hub. V2 has split the flow in multiple methods so you can use it in an API
      * ```js
@@ -55,12 +55,11 @@ class Authenticate {
      * ```
      *
      * @param {string} ip - The IP address of the hub.
-     * @param {AuthenticationListener} listener - A listener for the process
      * @since v0.1.0
      */
-    constructor(ip = null, listener = null) {
+    constructor(ip = null) {
         this.ip = ip;
-        this.listener = listener;
+        this.listener = {};
 
         this.options = {
             CODE_LENGTH: 128,
@@ -170,4 +169,4 @@ class Authenticate {
     }
 }
 
-module.exports = { Authenticate };
+module.exports = { AuthenticateV2 };

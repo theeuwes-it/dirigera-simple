@@ -57,9 +57,9 @@ class AuthenticateV2 {
     * @param {AuthenticationListener} listener - A listener for the process
     * @since v0.1.0
     */
-    constructor(ip = null, listener = null) {
+    constructor(ip = null) {
         this.ip = ip;
-        this.listener = listener;
+        this.listener = {};
 
         this.options = {
             CODE_LENGTH: 128,
