@@ -185,15 +185,18 @@ function endLoading() {
     clearInterval(loadingIntervalId);
 }
 
-// module.exports = {
-//     fetchData,
-//     fetchForm,
-//     fetchJson,
-//     formatSecondsMinimal,
-//     padZeros,
-//     startLoading,
-//     endLoading
-// };
+function getChar(codeLength) {
+    const CODE_CHARACTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'.split('');
+    return CODE_CHARACTERS[Math.round(Math.random() * codeLength)];
+}
+function getCodeVerifier(codeLength) {
+    let s = ""
+    for (var i = 0; i < codeLength; i++) {
+        s += getChar(codeLength)
+    }
+    return s;
+}
+
 export {
     fetchData,
     fetchForm,
@@ -202,5 +205,6 @@ export {
     padZeros,
     startLoading,
     endLoading,
-    encodeDataToURL
+    encodeDataToURL,
+    getCodeVerifier
 };
